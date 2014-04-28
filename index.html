@@ -76,11 +76,27 @@
         <h2 id="how-does-simon-js-look-like">How does Simon JS look like?</h2>
 
         <p>
-            A fully configured page for a development team consisting of Jenkins jobs, Sonar projects and Nagios hosts looks like this:
+            Simon JS uses the <a href="http://getbootstrap.com/css/#grid">Twitter Bootstrap Grid</a> for the general layout of the page.
+            Monitor objects are placed in sections that make up the rows and columns of the grid.
+        </p>
+
+        <h3 id="overview">Overview</h3>
+        <p>
+            A fully configured page for a development team consisting of Jenkins jobs, Sonar projects and Nagios hosts may look like this:
         </p>
         <img src="/images/simon/simon-full_app.png"/>
+        <br/>
 
         <h3 id="jenkins-jobs">Jenkins Job</h3>
+
+        <p>
+            Simon JS may display Jenkins Jobs in single boxes. The boxes are colored depending on the current status of the job.
+            If the job was OK, green is used. If it's UNSTABLE, yellow, if it's BROKEN, red.
+        </p>
+        <p>
+            Jenkins exposes many details about a job over <a href="https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API">it's remote API</a>. Simon JS can
+            display whether a job is running, and how far along the build currently is. When clicking on a Job-Box, details are displayed in the details panel.
+        </p>
 
         <ul>
             <li>
@@ -122,6 +138,10 @@
         </ul>
 
         <h3 id="sonar">Sonar</h3>
+          <p>
+              Simon JS displays the status of a Sonar project in a table. If the project contains blockers or criticals, the
+              box is displayed in red. Major, Minor and Info are yellow if the count is larger then 1.
+          </p>
           <ul>
               <li>
                   Single project: <br/>
@@ -134,6 +154,12 @@
           </ul>
 
         <h3 id="nagios">Nagios</h3>
+          <p>
+              Simon JS displays a Nagios host with all services as one box. As long as all services are OK, the whole box is green.
+              If one or more services have the status WARNING, the box is yellow. If one or more services have the status CRITICAL, the box is red.
+              The services that are currently failing are displayed within the box, all services and a link to your Nagios instance is displayed in
+              the details panel.
+          </p>
           <ul>
               <li>
                   Services OK for host, with details: <br/>
