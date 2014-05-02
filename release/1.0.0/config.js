@@ -86,5 +86,15 @@ configJson = {
         }
       ]
     }
-  ]
+  ],
+  configuration: {
+    hosts: [
+      {
+        hostname: "jenkins-master.com",
+        protocol: "https",
+        prefix: "jenkins"
+      }
+    ],
+    expiry: 36
+  }
 };
