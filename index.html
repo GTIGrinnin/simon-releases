@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Simon JS by afranken</title>
@@ -9,203 +9,229 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="javascripts/main.js"></script>
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  </head>
-  <body>
+</head>
+<body>
 
-      <header>
-        <h1>Simon JS</h1>
-        <span>A Simple Monitor Single Page Application</span>
-      </header>
+<header>
+    <h1>Simon JS</h1>
+    <span>A Simple Monitor Single Page Application</span>
+</header>
 
-      <div id="banner">
-        <span id="logo"></span>
+<div id="banner">
+    <span id="logo"></span>
 
-        <a href="https://github.com/afranken/simon" class="button fork"><strong>View On GitHub</strong></a>
-        <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
+    <a href="https://github.com/afranken/simon" class="button fork"><strong>View On GitHub</strong></a>
+
+    <div class="downloads">
+        <span>Downloads:</span>
+        <ul>
             <li><a href="https://github.com/afranken/simon/zipball/master" class="button">ZIP</a></li>
             <li><a href="https://github.com/afranken/simon/tarball/master" class="button">TAR</a></li>
-          </ul>
-        </div>
-      </div><!-- end banner -->
-
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-
-      <section>
-      <div>
-        <h2 id="what-is-simon-js">What is Simon JS?</h2>
-
-        <p>
-            Simon JS is a Single Page Application that helps you monitor the status of your development infrastructure.
-        </p>
-
-        <p>
-            It is meant as a tool to help developers gain a quick overview and easy access to build jobs on applications like <a href="http://jenkins-ci.org/">Jenkins</a>,
-            software quality projects on tools like <a href="http://www.sonarqube.org/">Sonarqube</a> and services on infrastructure monitoring tools
-            like <a href="http://www.nagios.org/">Nagios</a>.
-        </p>
-      </div>
-      <hr/>
-      <div>
-        <h2 id="how-does-simon-js-work">How does Simon JS work?</h2>
-
-        <p>
-            Simon JS is a Single Page Application using JavaScript to get remote data and display it on the page.
-        </p>
-        <p>
-            Data from backend servers is loaded as JSON, applied to JavaScript models which are in turn displayed on the page using Knockout.
-            The data is reloaded periodically (currently every 60-120 seconds). Thanks to Knockout's two way data binding, the page is seamlessly updated with new data.
-        </p>
-        <p>
-            It's based on AMD/<a href="http://requirejs.org/">Require JS</a> uses <a href="http://knockoutjs.com/">Knockout</a> for view rendering,
-            <a href="http://jquery.com/">jQuery</a>, <a href="http://momentjs.com/">Moment.js</a> and <a href="http://getbootstrap.com/">Twitter Bootstrap</a>
-            for layout and frontent effects.
-            While Simon JS is written in <a href="http://www.typescriptlang.org/">Typescript</a>, the Simon JS library is distributed in JavaScript.
-        </p>
-      </div>
-      <hr/>
-      <div>
-        <h2 id="how-does-simon-js-look-like">How does Simon JS look like?</h2>
-
-        <p>
-            Simon JS uses the <a href="http://getbootstrap.com/css/#grid">Twitter Bootstrap Grid</a> for the general layout of the page.
-            Monitor objects are placed in sections that make up the rows and columns of the grid.
-        </p>
-
-        <h3 id="overview">Overview</h3>
-        <p>
-            A fully configured page for a development team consisting of Jenkins jobs, Sonar projects and Nagios hosts may look like this:
-        </p>
-        <img src="/images/simon/simon-full_app.png"/>
-        <br/>
-
-        <h3 id="jenkins-jobs">Jenkins Job</h3>
-
-        <p>
-            Simon JS may display Jenkins Jobs in single boxes. The boxes are colored depending on the current status of the job.
-            If the job was OK, green is used. If it's UNSTABLE, yellow, if it's BROKEN, red.
-        </p>
-        <p>
-            Jenkins exposes many details about a job over <a href="https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API">it's remote API</a>. Simon JS can
-            display whether a job is running, and how far along the build currently is. When clicking on a Job-Box, details are displayed in the details panel.
-        </p>
-
-        <ul>
-            <li>
-              Status ok: <br/>
-              <img src="/images/simon/simon-jenkins_ok.png" />
-            </li>
-            <li>
-              Status ok while running:<br/>
-              <img src="/images/simon/simon-jenkins_ok-building.png" />
-            </li>
-            <li>
-              Status ok with details:<br/>
-              <img src="/images/simon/simon-jenkins_ok-details.png" />
-            </li>
-            <li>
-              Status ok and the job didn't run for a while:<br/>
-              <img src="/images/simon/simon-jenkins_ok-faded.png" />
-            </li>
-            <li>
-              Status unstable:<br/>
-              <img src="/images/simon/simon-jenkins_unstable.png" />
-            </li>
-            <li>
-                Status unstable while running:<br/>
-                <img src="/images/simon/simon-jenkins_unstable-running.png" />
-            </li>
-            <li>
-                Status unstable and the job didn't run for a while:<br/>
-                <img src="/images/simon/simon-jenkins_unstable-faded.png" />
-            </li>
-            <li>
-                Status broken: <br/>
-                <img src="/images/simon/simon-jenkins_broken.png" />
-            </li>
-            <li>
-                Status broken with details:<br/>
-                <img src="/images/simon/simon-jenkins_broken-details.png" />
-            </li>
         </ul>
-
-        <h3 id="sonar">Sonar</h3>
-          <p>
-              Simon JS displays the status of a Sonar project in a table. If the project contains blockers or criticals, the
-              box is displayed in red. Major, Minor and Info are yellow if the count is larger then 1.
-          </p>
-          <ul>
-              <li>
-                  Single project: <br/>
-                  <img src="/images/simon/simon-sonar_with_critical.png" />
-              </li>
-              <li>
-                  Multiple projects: <br/>
-                  <img src="/images/simon/simon-sonar_multiple_projects.png" />
-              </li>
-          </ul>
-
-        <h3 id="nagios">Nagios</h3>
-          <p>
-              Simon JS displays a Nagios host with all services as one box. As long as all services are OK, the whole box is green.
-              If one or more services have the status WARNING, the box is yellow. If one or more services have the status CRITICAL, the box is red.
-              The services that are currently failing are displayed within the box, all services and a link to your Nagios instance is displayed in
-              the details panel.
-          </p>
-          <ul>
-              <li>
-                  Services OK for host, with details: <br/>
-                  <img src="/images/simon/simon-nagios_service_ok-details.png" />
-              </li>
-              <li>
-                  Service with status warning: <br/>
-                  <img src="/images/simon/simon-nagios_service_warning.png" />
-              </li>
-              <li>
-                  Service with status broken: <br/>
-                  <img src="/images/simon/simon-nagios_service_broken.png" />
-              </li>
-              <li>
-                  Multipe hosts: <br/>
-                  <img src="/images/simon/simon-nagios_several_services.png" />
-              </li>
-          </ul>
-
-      </div>
-      <hr/>
-      <div>
-        <h2 id="how-is-simon-js-used">How is Simon JS used?</h2>
-
-        <p>
-            To use Simon JS, a HTML page containing links to JS files and Knockout templates is needed.
-            A usable page is available here: <a href="http://www.simonjs.org/release/1.0.0/index.html">index.html</a>
-        </p>
-        <p>
-            The Simon JS page is configured using a JavaScript file. This file must declare a global variable <code>configJson</code> that contains
-            a JSON object.
-        </p>
-        <p>
-            This JSON object must comply to the <a href="http://www.simonjs.org/release/1.0.0/ts/Config.d.ts">Configuration</a> Typescript interface.
-            A sample configuration can be found <a href="http://www.simonjs.org/release/1.0.0/config.js">here</a>. This configuration is used
-            when opening the <a href="http://www.simonjs.org/release/1.0.0/index.html">index.html</a>.
-        </p>
-      </div>
-      </section>
-
-      <!-- FOOTER  -->
-      <footer>
-        <span>Project maintained by <a href="https://github.com/afranken">afranken</a></span>
-        <span><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></span>
-      </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-  </body>
+</div>
+<!-- end banner -->
+
+<div class="wrapper">
+    <nav>
+        <ul></ul>
+    </nav>
+
+    <section>
+        <div>
+            <h2 id="what-is-simon-js">What is Simon JS?</h2>
+
+            <p>
+                Simon JS is a Single Page Application that helps you monitor the status of your development
+                infrastructure.
+            </p>
+
+            <p>
+                It is meant as a tool to help developers gain a quick overview and easy access to build jobs on
+                applications like <a href="http://jenkins-ci.org/">Jenkins</a>,
+                software quality projects on tools like <a href="http://www.sonarqube.org/">Sonarqube</a> and services
+                on infrastructure monitoring tools
+                like <a href="http://www.nagios.org/">Nagios</a>.
+            </p>
+        </div>
+        <hr/>
+        <div>
+            <h2 id="how-does-simon-js-work">How does Simon JS work?</h2>
+
+            <p>
+                Simon JS is a Single Page Application using JavaScript to get remote data and display it on the page.
+            </p>
+
+            <p>
+                Data from backend servers is loaded as JSON, applied to JavaScript models which are in turn displayed on
+                the page using Knockout.
+                The data is reloaded periodically (currently every 60-120 seconds). Thanks to Knockout's two way data
+                binding, the page is seamlessly updated with new data.
+            </p>
+
+            <p>
+                It's based on AMD/<a href="http://requirejs.org/">Require JS</a> uses <a href="http://knockoutjs.com/">Knockout</a>
+                for view rendering,
+                <a href="http://jquery.com/">jQuery</a>, <a href="http://momentjs.com/">Moment.js</a> and <a
+                    href="http://getbootstrap.com/">Twitter Bootstrap</a>
+                for layout and frontent effects.
+                While Simon JS is written in <a href="http://www.typescriptlang.org/">Typescript</a>, the Simon JS
+                library is distributed in JavaScript.
+            </p>
+        </div>
+        <hr/>
+        <div>
+            <h2 id="how-does-simon-js-look-like">How does Simon JS look like?</h2>
+
+            <p>
+                Simon JS uses the <a href="http://getbootstrap.com/css/#grid">Twitter Bootstrap Grid</a> for the general
+                layout of the page.
+                Monitor objects are placed in sections that make up the rows and columns of the grid.
+            </p>
+
+            <h3 id="overview">Overview</h3>
+
+            <p>
+                A fully configured page for a development team consisting of Jenkins jobs, Sonar projects and Nagios
+                hosts may look like this:
+            </p>
+            <img src="/images/simon/simon-full_app.png"/>
+            <br/>
+
+            <h3 id="jenkins-jobs">Jenkins Job</h3>
+
+            <p>
+                Simon JS may display Jenkins Jobs in single boxes. The boxes are colored depending on the current status
+                of the job. If the job was OK, green is used. If it's UNSTABLE, yellow, if it's BROKEN, red.
+            </p>
+
+            <p>
+                Jenkins exposes many details about a job over <a
+                    href="https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API">it's remote API</a>. Simon JS
+                can display whether a job is running, and how far along the build currently is. When clicking on a Job-Box,
+                details are displayed in the details panel.
+            </p>
+
+            <ul>
+                <li>
+                    Status ok: <br/>
+                    <img src="/images/simon/simon-jenkins_ok.png"/>
+                </li>
+                <li>
+                    Status ok while running:<br/>
+                    <img src="/images/simon/simon-jenkins_ok-building.png"/>
+                </li>
+                <li>
+                    Status ok with details:<br/>
+                    <img src="/images/simon/simon-jenkins_ok-details.png"/>
+                </li>
+                <li>
+                    Status ok and the job didn't run for a while:<br/>
+                    <img src="/images/simon/simon-jenkins_ok-faded.png"/>
+                </li>
+                <li>
+                    Status unstable:<br/>
+                    <img src="/images/simon/simon-jenkins_unstable.png"/>
+                </li>
+                <li>
+                    Status unstable while running:<br/>
+                    <img src="/images/simon/simon-jenkins_unstable-running.png"/>
+                </li>
+                <li>
+                    Status unstable and the job didn't run for a while:<br/>
+                    <img src="/images/simon/simon-jenkins_unstable-faded.png"/>
+                </li>
+                <li>
+                    Status broken: <br/>
+                    <img src="/images/simon/simon-jenkins_broken.png"/>
+                </li>
+                <li>
+                    Status broken with details:<br/>
+                    <img src="/images/simon/simon-jenkins_broken-details.png"/>
+                </li>
+            </ul>
+
+            <h3 id="sonar">Sonar</h3>
+
+            <p>
+                Simon JS displays the status of a Sonar project in a table. If the project contains blockers or
+                criticals, the box is displayed in red. Major, Minor and Info are yellow if the count is larger then 1.
+            </p>
+            <ul>
+                <li>
+                    Single project: <br/>
+                    <img src="/images/simon/simon-sonar_with_critical.png"/>
+                </li>
+                <li>
+                    Multiple projects: <br/>
+                    <img src="/images/simon/simon-sonar_multiple_projects.png"/>
+                </li>
+            </ul>
+
+            <h3 id="nagios">Nagios</h3>
+
+            <p>
+                Simon JS displays a Nagios host with all services as one box. As long as all services are OK, the whole
+                box is green.
+                If one or more services have the status WARNING, the box is yellow. If one or more services have the
+                status CRITICAL, the box is red.
+                The services that are currently failing are displayed within the box, all services and a link to your
+                Nagios instance is displayed in the details panel.
+            </p>
+            <ul>
+                <li>
+                    Services OK for host, with details: <br/>
+                    <img src="/images/simon/simon-nagios_service_ok-details.png"/>
+                </li>
+                <li>
+                    Service with status warning: <br/>
+                    <img src="/images/simon/simon-nagios_service_warning.png"/>
+                </li>
+                <li>
+                    Service with status broken: <br/>
+                    <img src="/images/simon/simon-nagios_service_broken.png"/>
+                </li>
+                <li>
+                    Multipe hosts: <br/>
+                    <img src="/images/simon/simon-nagios_several_services.png"/>
+                </li>
+            </ul>
+
+        </div>
+        <hr/>
+        <div>
+            <h2 id="how-is-simon-js-used">How is Simon JS used?</h2>
+
+            <p>
+                To use Simon JS, a HTML page containing links to JS files and Knockout templates is needed.
+                A usable page is available here: <a href="http://www.simonjs.org/release/1.0.0/index.html">index.html</a>
+            </p>
+
+            <p>
+                The Simon JS page is configured using a JavaScript file. This file must declare a global variable <code>configJson</code>
+                that contains a JSON object.
+            </p>
+
+            <p>
+                This JSON object must comply to the <a href="http://www.simonjs.org/release/1.0.0/ts/Config.d.ts">Configuration</a>
+                Typescript interface. A sample configuration can be found <a href="http://www.simonjs.org/release/1.0.0/config.js">here</a>.
+                This configuration is used when opening the <a href="http://www.simonjs.org/release/1.0.0/index.html">index.html</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER  -->
+    <footer>
+        <span>Project maintained by <a href="https://github.com/afranken">afranken</a></span>
+        <span><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a>
+        </small></span>
+    </footer>
+</div>
+<!--[if !IE]>
+<script>fixScale(document);</script><![endif]-->
+</body>
 </html>
