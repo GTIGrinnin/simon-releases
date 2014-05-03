@@ -184,29 +184,19 @@
       <div>
         <h2 id="how-is-simon-js-used">How is Simon JS used?</h2>
 
-        <p><code>&lt;insert full description here&gt;</code></p>
-
-        <ul>
-            <li>
-                open page from <code>http://www.simonjs.org/release/1.0.0/index.html</code>
-            </li>
-            <li>
-                <p>supply your own configuration in a JavaScript file using the URL parameter "config":
-                <code>http://www.simonjs.org/release/1.0.0/index.html?config=http://your-server/config.js</code>
-                </p>
-            </li>
-            <li>
-                <p>Your config.js must contain a JSON object stored in the global variable "configJson":
-                <code>configJson={//insert configuration here}</code>
-                </p>
-            </li>
-            <li>
-                The configuration object must be compatible to the Typescript interface <a href="https://github.com/afranken/simon/blob/master/src/main/ts/jsonInterfaces/Config.d.ts">Config.d.ts</a>
-            </li>
-            <li>
-                When you open <code>http://www.simonjs.org/release/1.0.0/index.html</code>, a sample configuration is used that can be found here: <code>http://www.simonjs.org/release/1.0.0/config.js</code>
-            </li>
-        </ul>
+        <p>
+            To use Simon JS, a HTML page containing links to JS files and Knockout templates is needed.
+            A usable page is available here: <a href="http://www.simonjs.org/release/1.0.0/index.html">index.html</a>
+        </p>
+        <p>
+            The Simon JS page is configured using a JavaScript file. This file must declare a global variable <code>configJson</code> that contains
+            a JSON object.
+        </p>
+        <p>
+            This JSON object must comply to the <a href="http://www.simonjs.org/release/1.0.0/ts/Config.d.ts">Configuration</a> Typescript interface.
+            A sample configuration can be found <a href="http://www.simonjs.org/release/1.0.0/config.js">here</a>. This configuration is used
+            when opening the <a href="http://www.simonjs.org/release/1.0.0/index.html">index.html</a>.
+        </p>
       </div>
       </section>
 
