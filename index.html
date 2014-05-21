@@ -103,7 +103,7 @@
             <img src="/images/simon/simon-full_app.png"/>
             <br/>
 
-            <h3 id="jenkins">Jenkins</h3>
+            <h3 id="look-jenkins">Jenkins</h3>
 
             <p>
                 Simon JS may display Jenkins Jobs in single boxes. The boxes are colored depending on the current status
@@ -156,7 +156,7 @@
                 </li>
             </ul>
 
-            <h3 id="sonar">Sonar</h3>
+            <h3 id="look-sonar">Sonar</h3>
 
             <p>
                 Simon JS displays the status of a Sonar project in a table. If the project contains blockers or
@@ -173,7 +173,7 @@
                 </li>
             </ul>
 
-            <h3 id="nagios">Nagios</h3>
+            <h3 id="look-nagios">Nagios</h3>
 
             <p>
                 Simon JS displays a Nagios host with all services as one box. As long as all services are OK, the whole
@@ -235,6 +235,37 @@
             </p>
         </div>
         <hr/>
+        <div>
+            <h2 id="backend-configuration">Backend Configuration</h2>
+
+            <h3 id="config-jenkins">Jenkins</h3>
+            <p>
+                Jenkins returns 403 to JSONP Get requests by default.
+            </p>
+            <p>
+                Errormessage: <b>Exception: jsonp forbidden; can use -Dhudson.model.Api.INSECURE=true if you run without security</b>
+            </p>
+            <p>
+                From <a href="https://wiki.jenkins-ci.org/display/SECURITY/Jenkins+Security+Advisory+2013-02-16">Jenkins Security Advisory 2013-02-16</a>:
+                <br/>
+                JSONP support in Remote access API is removed. If you have other programs that depend on this behavior,
+                you can set the hudson.model.Api.INSECURE system property to true, to resurrect behaviour.
+                However, this is highly discouraged.
+            </p>
+
+            <h3 id="config-sonar">Sonar</h3>
+            <p>
+                Simon JS works out-of-the-box with SonarQube.
+            </p>
+
+            <h3 id="config-nagios">Nagios</h3>
+            <p>
+                Nagios does not support JSON but responds with XML only.
+            </p>
+            <p>
+                Use <a href="https://github.com/afranken/status-json">this JSON cgi controller</a> to get Nagios to work with Simon JS.
+            </p>
+        </div>
         <div>
             <h2 id="release-notes">Release Notes</h2>
 
